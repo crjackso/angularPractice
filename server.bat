@@ -1,3 +1,3 @@
 @echo off
-
-node "scripts\web-server"
+cd app
+node "..\scripts\web-server"
