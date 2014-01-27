@@ -1,5 +1,7 @@
 /* app css stylesheet */
-
+ul {
+    list-style: none;
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -51,11 +53,19 @@ select, textarea {
 }
 
 .votingWidget {
-  height: 64px;
-  padding: 7px;
+    height: 70px;
+    padding: 7px;
+    float: left;
+    margin-right: 10px;
 }
 
 .votingButton {
-  padding-left:6px;
-  cursor:pointer;
+    padding-left: 4px;
+    cursor: pointer;
+}
+input.ng-invalid.ng-dirty {
+    background-color: pink;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }

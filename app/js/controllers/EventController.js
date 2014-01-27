@@ -1,13 +1,23 @@
-﻿eventsApp.controller('EventController', function EventController($scope) {
-    $scope.event = {
-        name: 'Birthday party',
-        date: '1/1/2013',
-        time: '10:40',
-        location: {
-            address: 'Google Headquarters',
-            city: 'Mountain View',
-            province: 'CA'
-        },
-        imageUrl: '/img/angular-logo.png'
-    };
-});
+﻿'use strict';
+
+eventsApp.controller('EventController',
+    function EventController($scope, eventData) {
+        $scope.sortOrder = 'name';
+        var eventPromise = eventData.getEvent();
+
+        eventPromise.then(
+            function(event) {
+                $scope.event = event;
+                console.log(event);
+            },
+            function(response) { console.log(response); }
+        );
+        
+        $scope.upVoteSession = function(session) {
+            session.upVoteCount++;
+        };
+
+        $scope.downVoteSession = function(session) {
+            session.upVoteCount--;
+        };
+    });
